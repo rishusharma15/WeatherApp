@@ -16,7 +16,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String city = "";
-  double temp = 0.0;
+  double temp = 0;
   int humidity = 0;
   double latitude = 0;
   double longitude = 0;
@@ -27,23 +27,9 @@ class _MyAppState extends State<MyApp> {
       home: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("weather2.png"),
+            image: AssetImage('images/weather_background1.png'),
             fit: BoxFit.cover,
           ),
-          // gradient: LinearGradient(
-          //   begin: Alignment.topLeft,
-          //   end: Alignment(0.8, 1),
-          //   colors: <Color>[
-          //     Color.fromARGB(255, 244, 243, 246),
-          //     Color.fromARGB(255, 206, 232, 240),
-          //     Color.fromARGB(255, 187, 242, 249),
-          //     Color.fromARGB(255, 140, 250, 250),
-          //     Color.fromARGB(255, 131, 249, 249),
-          //     Color.fromARGB(255, 154, 224, 247),
-          //     Color.fromARGB(255, 66, 185, 196),
-          //     Color.fromARGB(255, 131, 173, 222),
-          //   ],
-          // ),
         ),
         child: Scaffold(
           backgroundColor: Colors.transparent,
@@ -53,9 +39,15 @@ class _MyAppState extends State<MyApp> {
           body: SingleChildScrollView(
             child: Column(
               children: [
+                SizedBox(
+                  height: 20,
+                ),
                 CircleAvatar(
-                  radius: 150,
+                  radius: 120,
                   backgroundImage: AssetImage('images/weather2.png'),
+                ),
+                SizedBox(
+                  height: 20,
                 ),
                 Center(
                   child: SizedBox(
@@ -88,7 +80,48 @@ class _MyAppState extends State<MyApp> {
                   },
                   child: Text("search"),
                 ),
-                Text("tempreture: " '${temp}'),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Column(
+                      children: [
+                        Text(""),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Temperature :  ",
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      '${temp}',
+                      style: TextStyle(
+                        fontSize: 70,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 6,
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          '°C',
+                          style: TextStyle(
+                            fontSize: 25,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Text(''),
+                      ],
+                    ),
+                  ],
+                ),
+                //Text("tempreture: " '${temp}'),
                 Text("humidity: " '${humidity}'),
                 Text("latitude: " '${latitude}'),
                 Text("longitude: " '${longitude}'),
